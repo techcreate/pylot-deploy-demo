@@ -1,8 +1,36 @@
 <html>
-  <head>
+ 	<head>
+ 	<title>Courses Assignment</title>
     <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
-  </head>
-  <body>
-    The best place to start is the "WelcomeController.py" file in app/controllers.
-  </body>
+	</head>
+	<body>
+		<h1>Add a new course</h1>
+			<form action="/course/add/process" method='post'>
+				<label>Name: <input type="text" name="course_name"></label>
+        <br><br>
+				<label>Description: <input type="text" name="description"></label>
+        <br><br>
+  					<button type="submit" class=''>Add</button>
+			</form>
+  			<br>
+  			<h2>Courses</h2>
+  			<table>
+  				<tr>
+  					<th>Course Name</th>
+  					<th>Description</th>
+  					<th>Date added</th>
+  					<th>Actions</th>
+  				</tr>
+  				{% if courses %}
+  					{% for course in courses %}
+  				<tr>
+  					<td>{{ course.course_name}}</td>
+  					<td>{{ course.description}}</td>
+  					<td>{{ course.created_at}}</td>
+  					<td><a href="/course/{{course.id}}/delete">remove</a></td>
+  					{% endfor %}
+  				{% endif %}
+  				</tr>
+  			</table>
+	</body>
 </html>

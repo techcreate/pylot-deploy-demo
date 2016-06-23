@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delete</title>
+</head>
+<body>
+<h1>Are you sure you want to delete the following course?</h1>
+<div>
+	{% if course %}
+		<div class='coursed'>
+			<p>Name:  {{course.course_name}}</p>
+			<p>Description:  {{course.description}}</p>
+		</div>
+	{% endif %}
+	<button><a href='/'>No</a></button> <button><a href='/course/{{course.id}}/delete/process'>Yes! I want to delete</a></button>
+</div>
+
+</body>
+</html>
